@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIAMOND KING BD</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101014;color:white;font-family:Arial,sans-serif}
+header{padding:18px;background:#1c1b20;color:#edc45b;font-size:20px;font-weight:bold}
+.hero{text-align:center;padding:45px 15px;background:linear-gradient(140deg,#32233d,#111118)}
+.hero h1{color:#f3c65c;font-size:30px}
+.hero p{color:#ddd}
+.container{max-width:550px;margin:auto;padding:20px}
+h2{text-align:center;color:#f1c45b}
+.card{background:#222129;padding:17px;margin:12px 0;border:1px solid #514334;border-radius:12px}
+button{background:#d6aa42;color:#17120a;border:0;border-radius:7px;padding:11px 16px;font-weight:bold}
+input,select{width:100%;padding:14px;margin:10px 0;background:#17171d;color:white;border:1px solid #555;border-radius:7px}
+label{color:#ddd}
+.full{width:100%;padding:14px}
+.price{color:#f4c75c}
+footer{text-align:center;background:#1c1b20;padding:25px;color:#aaa}
+</style>
+</head>
+<body>
+<header>👑 DIAMOND KING BD</header>
+
+<section class="hero">
+<h1>FREE FIRE TOP-UP</h1>
+<p>Your Diamond, Your Kingdom!</p>
+<button onclick="document.getElementById('order').scrollIntoView()">BUY NOW</button>
+</section>
+
+<div class="container">
+<h2>💎 Diamond Packages</h2>
+<div id="packages"></div>
+
+<div id="order" class="card">
+<h2>Place Your Order</h2>
+<form id="form">
+<label>Free Fire Player UID</label>
+<input id="uid" type="text" placeholder="Enter Player UID" required>
+<label>Select Diamond</label>
+<select id="pack"></select>
+<button class="full">SUBMIT ORDER</button>
+</form>
+<p style="color:#aaa;font-size:12px">Demo only. Real orders and payments are not active yet.</p>
+</div>
+</div>
+
+<footer>
+👑 DIAMOND KING BD
+<p>Premium Gaming Top-up Store</p>
+© 2026 All Rights Reserved
+</footer>
+
+<script>
+const items=["25 Diamonds","50 Diamonds","115 Diamonds","240 Diamonds","610 Diamonds"];
+const pack=document.getElementById("pack");
+items.forEach(item=>{
+let option=document.createElement("option");
+option.textContent=item;
+pack.appendChild(option);
+
+let card=document.createElement("div");
+card.className="card";
+card.innerHTML=`<b>💎 ${item}</b><p class="price">Price: Coming Soon</p>`;
+let btn=document.createElement("button");
+btn.textContent="BUY NOW";
+btn.onclick=()=>{
+pack.value=item;
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+};
+card.appendChild(btn);
+document.getElementById("packages").appendChild(card);
+});
+document.getElementById("form").addEventListener("submit",e=>{
+e.preventDefault();
+alert("এটি ডেমো। এখনো অর্ডার চালু হয়নি।");
+});
+</script>
+</body>
+</html>
